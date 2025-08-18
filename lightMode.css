@@ -1,0 +1,13 @@
+/* Light theme */
+:root {
+  --bg-color:  #fffffff2;   
+  --bg-color-sec:  #ffffffe6;   
+  --box-shadow: #0000001a;
+  --border-color: #ffffff33;
+  --main-text-color:white;
+  --text-color:#a0aec0;
+  --text-color-sec: #718096;
+  --loading-color:#ffffff4d;
+  --card-bg: #ffffff;
+  --card-text: #000000;
+}

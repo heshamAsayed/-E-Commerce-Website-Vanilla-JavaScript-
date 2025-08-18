@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>تسجيل مستخدم جديد</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: 'Tajawal', sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background particles */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="0.5" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(180deg); }
+    }
+
+    .register-container {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+      max-width: 480px;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: slideInUp 0.8s ease-out;
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .register-container:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 
+        0 30px 60px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.3);
+    }
+
+    .register-container h2 {
+      font-weight: 700;
+      color: #4a5568;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.2rem;
+      position: relative;
+      animation: fadeInDown 1s ease-out 0.3s both;
+    }
+
+    .register-container h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-radius: 2px;
+      animation: expandWidth 1s ease-out 0.8s both;
+    }
+
+    @keyframes expandWidth {
+      from { width: 0; }
+      to { width: 60px; }
+    }
+
+    .form-label {
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-control {
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 15px 20px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+    }
+
+    .form-control:focus {
+      border-color: #667eea;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      background: rgba(255, 255, 255, 0.95);
+      transform: translateY(-2px);
+    }
+
+    .form-control:valid {
+      border-color: #48bb78;
+    }
+
+    .form-control:invalid:not(:placeholder-shown) {
+      border-color: #f56565;
+    }
+
+    .mb-3 {
+      margin-bottom: 25px !important;
+      animation: fadeInUp 0.6s ease-out both;
+    }
+
+    .mb-3:nth-child(1) { animation-delay: 0.4s; }
+    .mb-3:nth-child(2) { animation-delay: 0.5s; }
+    .mb-3:nth-child(3) { animation-delay: 0.6s; }
+    .mb-3:nth-child(4) { animation-delay: 0.7s; }
+
+    .btn-success {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border: none;
+      border-radius: 12px;
+      padding: 15px 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease-out 0.8s both;
+    }
+
+    .btn-success::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn-success:hover::before {
+      left: 100%;
+    }
+
+    .btn-success:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    .btn-success:active {
+      transform: translateY(-1px) scale(1.02);
+    }
+
+    .btn-success:disabled {
+      background: linear-gradient(45deg, #a0aec0, #718096);
+      transform: none;
+      box-shadow: none;
+    }
+
+    #loginBtn {
+      display: none;
+      background: linear-gradient(45deg, #48bb78, #38a169);
+      border: none;
+      border-radius: 12px;
+      padding: 12px 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    #loginBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(72, 187, 120, 0.3);
+    }
+
+    /* Message styling */
+    #message {
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-radius: 12px;
+      padding: 15px;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+
+    #message.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #message.text-success {
+      background: rgba(72, 187, 120, 0.1);
+      border: 1px solid rgba(72, 187, 120, 0.3);
+      color: #2f855a;
+    }
+
+    #message.text-danger {
+      background: rgba(245, 101, 101, 0.1);
+      border: 1px solid rgba(245, 101, 101, 0.3);
+      color: #c53030;
+    }
+
+    /* Input icons */
+    .input-group {
+      position: relative;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #a0aec0;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .form-control:focus + .input-icon {
+      color: #667eea;
+    }
+
+    /* Floating labels */
+    .floating-label {
+      position: relative;
+    }
+
+    .floating-label .form-control {
+      padding-top: 20px;
+      padding-bottom: 10px;
+    }
+
+    .floating-label .form-label {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      color: #a0aec0;
+    }
+
+    .floating-label .form-control:focus + .form-label,
+    .floating-label .form-control:not(:placeholder-shown) + .form-label {
+      top: 5px;
+      right: 20px;
+      font-size: 0.8rem;
+      color: #667eea;
+    }
+
+    /* Responsive design */
+    @media (max-width: 576px) {
+      .register-container {
+        padding: 30px 20px;
+        margin: 10px;
+      }
+      
+      .register-container h2 {
+        font-size: 1.8rem;
+      }
+    }
+
+    /* Loading animation */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Success checkmark animation */
+    .success-checkmark {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #48bb78;
+      position: relative;
+      animation: checkmark 0.5s ease-in-out;
+    }
+
+    .success-checkmark::after {
+      content: '✓';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: bold;
+    }
+
+    @keyframes checkmark {
+      0% { transform: scale(0); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="register-container">
+    <h2>بيت الكتب</h2>
+
+    <form id="registerForm" novalidate>
+      <div class="mb-3 floating-label">
+        <input type="text" id="name" class="form-control" placeholder=" " required />
+        <label for="name" class="form-label">الاسم الكامل</label>
+        <i class="fas fa-user input-icon"></i>
+        <div class="invalid-feedback">الرجاء إدخال الاسم الكامل.</div>
+      </div>
+
+      <div class="mb-3 floating-label">
+        <input type="email" id="email" class="form-control" placeholder=" " required />
+        <label for="email" class="form-label">البريد الإلكتروني</label>
+        <i class="fas fa-envelope input-icon"></i>
+        <div class="invalid-feedback">الرجاء إدخال بريد إلكتروني صحيح.</div>
+      </div>
+
+      <div class="mb-3 floating-label">
+        <input type="password" id="password" class="form-control" placeholder=" " minlength="6" required />
+        <label for="password" class="form-label">كلمة المرور</label>
+        <i class="fas fa-lock input-icon"></i>
+        <div class="invalid-feedback">يجب أن تكون كلمة المرور 6 أحرف على الأقل.</div>
+      </div>
+
+      <div class="mb-3 floating-label">
+        <input type="password" id="confirmPassword" class="form-control" placeholder=" " minlength="6" required />
+        <label for="confirmPassword" class="form-label">تأكيد كلمة المرور</label>
+        <i class="fas fa-lock input-icon"></i>
+        <div class="invalid-feedback">كلمة المرور غير متطابقة.</div>
+      </div>
+
+      <button type="submit" class="btn btn-success w-100" id="submitBtn">
+        <i class="fas fa-user-plus me-2"></i>تسجيل
+      </button>
+    </form>
+
+    <div id="message" class="text-center"></div>
+    <button id="loginBtn" class="btn w-100 mt-3">
+      <i class="fas fa-sign-in-alt me-2"></i>اذهب لتسجيل الدخول
+    </button>
+  </div>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDOeA9__EGK09QnHD4uifvDYx4VNZvqV84",
+      authDomain: "ecommerceapp-a5273.firebaseapp.com",
+      databaseURL: "https://ecommerceapp-a5273-default-rtdb.firebaseio.com",
+      projectId: "ecommerceapp-a5273",
+      storageBucket: "ecommerceapp-a5273.firebasestorage.app",
+      messagingSenderId: "245935274455",
+      appId: "1:245935274455:web:81091e9f4df7e0e2c57392"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+    const auth = getAuth(app);
+
+    const registerForm = document.getElementById('registerForm');
+    const messageDiv = document.getElementById('message');
+    const loginBtn = document.getElementById('loginBtn');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Add input animations
+    const inputs = document.querySelectorAll('.form-control');
+    inputs.forEach(input => {
+      input.addEventListener('focus', function() {
+        this.parentElement.classList.add('focused');
+      });
+      
+      input.addEventListener('blur', function() {
+        if (!this.value) {
+          this.parentElement.classList.remove('focused');
+        }
+      });
+    });
+
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      messageDiv.textContent = '';
+      messageDiv.className = '';
+      messageDiv.classList.remove('show');
+
+      if (!registerForm.checkValidity()) {
+        registerForm.classList.add('was-validated');
+        messageDiv.textContent = '⚠️ يرجى ملء جميع الحقول المطلوبة';
+        messageDiv.className = 'text-danger show animate__animated animate__shakeX';
+        return;
+      }
+
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      if (password !== confirmPassword) {
+        messageDiv.textContent = '⚠️ كلمة المرور وتأكيدها غير متطابقين';
+        messageDiv.className = 'text-danger show animate__animated animate__shakeX';
+        return;
+      }
+
+      try {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="loading-spinner me-2"></span>جاري التسجيل...';
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        await set(ref(database, 'users/' + user.uid), {
+          name: name,
+          email: email,
+          type: 'customer'
+        });
+
+        messageDiv.innerHTML = '<span class="success-checkmark me-2"></span>✅ تم التسجيل بنجاح! يمكنك تسجيل الدخول الآن.';
+        messageDiv.className = 'text-success show animate__animated animate__fadeInUp';
+
+        loginBtn.style.display = 'block';
+        loginBtn.classList.add('animate__animated', 'animate__fadeInUp');
+        
+        registerForm.reset();
+        registerForm.classList.remove('was-validated');
+
+        // Reset floating labels
+        inputs.forEach(input => {
+          input.parentElement.classList.remove('focused');
+        });
+
+      } catch (error) {
+        let errorMessage = '⚠️ حدث خطأ أثناء التسجيل';
+        
+        if (error.code === 'auth/email-already-in-use') {
+          errorMessage = '⚠️ هذا البريد الإلكتروني مستخدم بالفعل';
+        } else if (error.code === 'auth/weak-password') {
+          errorMessage = '⚠️ كلمة المرور ضعيفة جداً';
+        } else if (error.code === 'auth/invalid-email') {
+          errorMessage = '⚠️ البريد الإلكتروني غير صحيح';
+        }
+        
+        messageDiv.textContent = errorMessage;
+        messageDiv.className = 'text-danger show animate__animated animate__shakeX';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-user-plus me-2"></i>تسجيل';
+      }
+    });
+
+    loginBtn.addEventListener('click', () => {
+      loginBtn.classList.add('animate__animated', 'animate__pulse');
+      setTimeout(() => {
+        window.location.href = './login/login.html';
+      }, 300);
+    });
+
+    // Add some interactive animations
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add typing effect to title
+      const title = document.querySelector('h2');
+      const originalText = title.innerHTML;
+      title.innerHTML = '';
+      
+      let i = 0;
+      const typeWriter = () => {
+        if (i < originalText.length) {
+          title.innerHTML += originalText.charAt(i);
+          i++;
+          setTimeout(typeWriter, 100);
+        }
+      };
+      
+      setTimeout(typeWriter, 1000);
+    });
+  </script>
+</body>
+</html>

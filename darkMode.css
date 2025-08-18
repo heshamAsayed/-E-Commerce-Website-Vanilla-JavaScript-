@@ -1,0 +1,52 @@
+/* Light theme */
+:root {
+    --bg-color: #000000f2;
+    /* أسود شفاف */
+    --bg-color-sec: #000000e6;
+    /* أسود أفتح بشفافية */
+    --box-shadow: #ffffff1a;
+    /* أبيض فاتح (شفاف) */
+    --border-color: #22222233;
+    /* أسود شفاف */
+    --main-text-color: black;
+    /* أسود */
+    --text-color: #5f513f;
+    /* عكس الرمادي #a0aec0 → أقرب بني رمادي */
+    --text-color-sec: #8e7f69;
+    /* عكس #718096 */
+    --loading-color: #0000004d;
+    /* أسود شفاف */
+    --card-bg: #000000;
+    /* أسود */
+    --card-text: #ffffff;
+    /* أبيض */
+}
+#btn-theme{
+    background-color: #8e7f69;
+    color: #fff;
+    
+}
+.total-section,.cart-table-container , .cart-table-container tr td,.cart-header{
+    background-color: gray !important;
+    color: white !important;
+}
+#totalPrice{
+    background:  linear-gradient(45deg, #ff0844, #ffb199);
+    background-clip: text;
+
+}
+*{
+    border-color: #fff !important;
+}
+.cart-header h1{
+    color: #fff
+}
+
+.cart-header p.subtitle{
+    color: rgba(255, 255, 255, 0.568) !important;
+}
+th,
+.btn-delete,
+.quantity-controls button , span{
+    color: #fff !important;
+}
