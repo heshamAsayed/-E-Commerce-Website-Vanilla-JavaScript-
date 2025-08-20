@@ -337,7 +337,6 @@
         gap: 5px;
       }
     }
-
   </style>
 
   <link rel="stylesheet" href="ModeChange.css">
@@ -428,15 +427,16 @@
             </div>
           </td>
         </tr>
+        
       `;
+        totalPriceEl.textContent = 0
         btnPlaceOrder.disabled = true;
         return;
       }
 
       for (const id in cart) {
         const item = cart[id];
-        console.log(item)
-        const itemTotal = item.price * item.quantity;
+        const itemTotal = (item.price * item.quantity) || 0;
         total += itemTotal;
 
         const tr = document.createElement('tr');
@@ -533,7 +533,7 @@
         let cart = JSON.parse(localStorage.getItem('cart'));
         if (!cart || Object.keys(cart).length === 0) {
           showMessage("العربة فارغة", "warning");
-          totalPrice.textContent = 0
+          total = 0
           return;
         }
 

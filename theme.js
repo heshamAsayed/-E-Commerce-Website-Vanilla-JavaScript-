@@ -1,20 +1,26 @@
-let savedTheme = localStorage.getItem("theme");
-if (savedTheme !== null) {
-  localStorage.setItem("theme", 0);
-}
-function changeTheme() {
+let savedTheme = localStorage.getItem("theme") || 0;
+
+function applyTheme(theme) {
   let link = document.getElementsByTagName("link")[0];
   let btn = document.getElementById("btn-theme");
-  btn.href = "lightMode.css";
-  if (localStorage.getItem("theme") == 0) {
-    btn.innerHTML = "☀️";
-    link.href = "darkMode.css";
-    localStorage.setItem("theme",1);
-  } else {
-    ds = 0;
-    localStorage.setItem("theme", 0);
+
+  if (theme == 0) {
     btn.innerHTML = "🌙";
     link.href = "lightMode.css";
+  } else {
+    btn.innerHTML = "☀️";
+    link.href = "darkMode.css";
   }
 }
- window.onload = (changeTheme)
+
+function changeTheme() {
+  let currentTheme = localStorage.getItem("theme") || 0;
+  let newTheme = currentTheme == 0 ? 1 : 0;
+  localStorage.setItem("theme", newTheme);
+  applyTheme(newTheme);
+}
+
+
+window.onload = () => {
+  applyTheme(savedTheme);
+};

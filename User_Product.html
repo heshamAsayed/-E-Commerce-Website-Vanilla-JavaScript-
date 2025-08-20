@@ -468,6 +468,10 @@
       transform: translateY(-2px) scale(1.02);
     }
 
+    .position-absolute{
+      z-index: 10;
+    }
+
     /* Enhanced Loading Animation */
     .loading {
       display: flex;
@@ -805,7 +809,7 @@
         <div class="card h-100 product-card animate__animated animate__fadeInUp">
           <div class="position-relative overflow-hidden">
             <img src="${product.imageURL}" class="card-img-top" alt="${product.name}">
-            <div class="position-absolute top-0 end-0 m-2">
+            <div class="position-absolute top-0 end-0 m-2 ">
               <span class="badge bg-primary rounded-pill">
                 <i class="fas fa-star me-1"></i>جديد
               </span>
