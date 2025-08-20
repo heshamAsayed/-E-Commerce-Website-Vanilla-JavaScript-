@@ -1,8 +1,7 @@
-# 📚 Simple Bookstore (Vanilla JavaScript)
-
-> A simple **HTML / CSS / Vanilla JavaScript** project for an online bookstore.  
-> Focused on displaying books, adding them to a shopping cart, and keeping both cart state and theme preference with `localStorage`.
-
+# 📚 E-Commerce-Website-Vanilla-JavaScript
+>A simple E-Commerce website built with Vanilla JavaScript, HTML5, and CSS3.
+>Integrated with Firebase Realtime Database for storing products and orders. 
+>Includes an Admin Dashboard to manage products and monitor orders in real time, while users can browse, add to cart, and checkout.
 ---
 
 ## 📌 Overview
@@ -24,7 +23,7 @@ The cart and theme (Light/Dark) are saved in the browser using `localStorage` so
 ---
 
 ## 📂 Project Structure
-````
+```
 project-root/
 ├───login/
 │       login.html
@@ -43,7 +42,6 @@ project-root/
 │   firebase-config.js
 │   index.html
 │   lightMode.css
-│   login.html
 │   README.md
 │   Register.html
 │   theme.js
@@ -52,7 +50,7 @@ project-root/
 │
 └───.vscode/
         settings.json
-````
+```
 
 ## Project Contributors
 
