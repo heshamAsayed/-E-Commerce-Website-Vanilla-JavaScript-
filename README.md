@@ -24,6 +24,7 @@ The cart and theme (Light/Dark) are saved in the browser using `localStorage` so
 ---
 
 ## 📂 Project Structure
+'''
 project-root/
 ├───login/
 │       login.html
@@ -51,7 +52,7 @@ project-root/
 │
 └───.vscode/
         settings.json
-
+'''
 
 ## Project Contributors
 
