@@ -6,7 +6,9 @@
 ---
 
 ## 📌 Overview
-This project is a **Bookstore Website** — it showcases books, allows users to add them to the cart, update quantities, and see the total cost. The cart and theme (Light/Dark) are saved in the browser using `localStorage` so they remain consistent across pages.
+This project is a **Bookstore Website** — it showcases books, allows users to add them to the cart, update quantities, and see the total cost.  
+The cart and theme (Light/Dark) are saved in the browser using `localStorage` so they remain consistent across pages.  
+**Firebase** is used to store and manage data, including user orders and authentication.
 
 ---
 
@@ -16,15 +18,12 @@ This project is a **Bookstore Website** — it showcases books, allows users to 
 - 🧮 **Automatic total calculation** after any change (add / delete / update).  
 - 💾 **Persistent cart and theme using localStorage** (cart and theme remain after page reloads or navigation).  
 - 🌓 **Dark/Light mode toggle**.  
-- 📱 **Responsive design** that works across devices.
+- 📱 **Responsive design** that works across devices.  
+- 🔐 **Firebase Authentication and Firestore** for user data and orders.
 
 ---
 
-## 📂 Project Structure (example)
-
-##******************************************************************
-
-## هيكل الملفات
+## 📂 Project Structure
 project-root/
 ├───login/
 │       login.html
@@ -61,4 +60,5 @@ project-root/
 | Mohamed Shaban    | [Mohamedshaban1907](https://github.com/Mohamedshaban1907) |
 | Mostafa Gaffer    | [Mostafagaffer00](https://github.com/Mostafagaffer00) |
 | Amro Mohamed      | [FlutterAdorable](https://github.com/FlutterAdorable) |
+| Mina Hany         | [Mina-Hany](https://github.com/Mina-Hany) |
 | Hesham Ahmed      | [heshamAsayed](https://github.com/heshamAsayed) |
