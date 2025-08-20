@@ -47,9 +47,6 @@ project-root/
 │   theme.js
 │   user_orders.html
 │   User_Product.html
-│
-└───.vscode/
-        settings.json
 ```
 
 ## Project Contributors
