@@ -36,7 +36,7 @@ function redirectToLogin() {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     const userRef = ref(database, 'users/' + user.uid);
-    onValue(userRef, (snapshot) => {
+    onValue(userRef, (snapshot) => {    // live listner
       const userData = snapshot.val();
       if (!userData || userData.type !== 'admin') {
         redirectToLogin();
@@ -54,7 +54,7 @@ onAuthStateChanged(auth, (user) => {
 function startCategoryManagement() {
   // إضافة قسم جديد
   categoryForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // to prevent refresh
     const name = categoryNameInput.value.trim();
     if (!name) {
       showAlert('يرجى إدخال اسم القسم', 'warning');
@@ -63,7 +63,7 @@ function startCategoryManagement() {
 
     try {
       const categoriesRef = ref(database, 'categories');
-      const newCategoryRef = push(categoriesRef);
+      const newCategoryRef = push(categoriesRef); // يولد مفتاح جديد to no overload in exist Data 
       await set(newCategoryRef, { name });
       categoryNameInput.value = '';
       showAlert('تم إضافة القسم بنجاح! 🎉', 'success');
@@ -83,7 +83,7 @@ function startCategoryManagement() {
 
   // عرض الأقسام وتحديث الجدول تلقائيًا
   const categoriesRef = ref(database, 'categories');
-  onValue(categoriesRef, (snapshot) => {
+  onValue(categoriesRef, (snapshot) => {   //زى اوبت بارام
     categoriesTableBody.innerHTML = '';
     
     if (!snapshot.exists()) {

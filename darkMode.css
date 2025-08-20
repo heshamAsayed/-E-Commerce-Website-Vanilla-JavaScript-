@@ -1,8 +1,8 @@
 /* Light theme */
 :root {
-    --bg-color: #000000f2;
+    --bg-color: #a0aec0;
     /* أسود شفاف */
-    --bg-color-sec: #000000e6;
+    --bg-color-sec: #7c7f83ad;
     /* أسود أفتح بشفافية */
     --box-shadow: #ffffff1a;
     /* أبيض فاتح (شفاف) */
@@ -21,32 +21,69 @@
     --card-text: #ffffff;
     /* أبيض */
 }
-#btn-theme{
-    background-color: #8e7f69;
+
+#btn-theme {
+    position: fixed;
+    right: 10px;
+    bottom: 14px;
+    z-index: 10;
+    background-color: var(--bs-blue);
+    background-color: var(--text-color-sec);
     color: #fff;
-    
+
 }
-.total-section,.cart-table-container , .cart-table-container tr td,.cart-header{
+
+.total-section,
+.cart-table-container,
+.cart-table-container tr td,
+.cart-header {
     background-color: gray !important;
     color: white !important;
 }
-#totalPrice{
-    background:  linear-gradient(45deg, #ff0844, #ffb199);
+
+#totalPrice {
+    background: linear-gradient(45deg, #ff0844, #ffb199);
     background-clip: text;
 
 }
-*{
+
+* {
     border-color: #fff !important;
+    color: #fff;
 }
-.cart-header h1{
+
+.cart-header h1 {
     color: #fff
 }
 
-.cart-header p.subtitle{
+.cart-header p.subtitle {
     color: rgba(255, 255, 255, 0.568) !important;
 }
+
 th,
 .btn-delete,
-.quantity-controls button , span{
+.quantity-controls button,
+span {
     color: #fff !important;
+}
+
+div.navbar *,
+
+div.filters-section,
+div.filters-section *,
+div.product-card {
+    background-color: var(--bg-color-sec) !important;
+    color: #fff;
+    
+}
+
+#searchInput::placeholder,div.navbar ul li a{
+    color: #fff !important;
+}
+
+p.card-text{
+
+    background: linear-gradient(45deg, var(--bg-color), #fff, var(--bg-color-sec));
+    background-size: 200% 200%;
+    background-clip: text;
 }

@@ -1,6 +1,6 @@
 /* Light theme */
 :root {
-  --bg-color:  #fffffff2;   
+  --bg-color:  rgba(255, 255, 255, 0.95);   
   --bg-color-sec:  #ffffffe6;   
   --box-shadow: #0000001a;
   --border-color: #ffffff33;
@@ -11,3 +11,10 @@
   --card-bg: #ffffff;
   --card-text: #000000;
 }
+#btn-theme {
+      position: fixed;
+      right: 10px;
+      bottom: 14px;
+      z-index: 10;
+      background-color: var(--bs-blue);
+ }

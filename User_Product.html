@@ -3,8 +3,11 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>بيت الكتب</title>
+  <title>اقرأ وتدرّب</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="lightMode.css">
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
   <link
@@ -102,7 +105,7 @@
 
     /* Enhanced Navbar Styling */
     .navbar {
-      background: rgba(255, 255, 255, 0.95) !important;
+      background: var(--bg-color) ;
       backdrop-filter: blur(20px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -349,7 +352,7 @@
 
     /* Enhanced Product Cards */
     .product-card {
-      background: rgba(255, 255, 255, 0.95);
+      background: var(--bg-color);
       backdrop-filter: blur(20px);
       border: none;
       border-radius: 25px;
@@ -650,7 +653,7 @@
   <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
     <div class="container">
       <a class="navbar-brand" href="#">
-        <i class="fas fa-shopping-bag me-2"></i>بيت الكتب
+        <i class="fas fa-shopping-bag me-2"></i>اقرأ وتدرّب
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
@@ -665,7 +668,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="https://wa.me/+201117465463">
               <i class="fas fa-phone me-1"></i>تواصل معنا
             </a>
           </li>
@@ -729,6 +732,8 @@
     // تحديث عدد العربة
     function updateCartCount() {
       const cart = JSON.parse(localStorage.getItem('cart')) || {};
+      console.log('++++++++++++++++++++++++++++++++++______________________________');
+      console.log(cart);
       cartCount.textContent = Object.keys(cart).length;
     }
 
@@ -766,7 +771,7 @@
     function renderProducts() {
       productsContainer.innerHTML = '';
 
-      let filteredProducts = allProducts;
+      let filteredProducts = allProducts; // by defualt
 
       const selectedCategory = categoryFilter.value;
       const searchTerm = searchInput.value.toLowerCase();
@@ -885,6 +890,9 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+   <button class="btn btn-info" id="btn-theme" onclick="changeTheme()" >🌙</button>
+  <script src="theme.js"></script>
 </body>
 
 </html>

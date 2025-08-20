@@ -20,6 +20,7 @@
     }
 
     body {
+
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       min-height: 100vh;
       display: flex;
@@ -28,7 +29,7 @@
       padding: 20px;
       font-family: 'Tajawal', sans-serif;
       position: relative;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
     /* Animated background particles */
@@ -343,7 +344,7 @@
 <body>
 
   <div class="register-container">
-    <h2>بيت الكتب</h2>
+    <h2> اقرأ وتدرّب</h2>
 
     <form id="registerForm" novalidate>
       <div class="mb-3 floating-label">
@@ -459,7 +460,7 @@
 
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-
+//store im my Db
         await set(ref(database, 'users/' + user.uid), {
           name: name,
           email: email,

@@ -14,7 +14,7 @@ const firebaseConfig = {
   appId: "1:245935274455:web:81091e9f4df7e0e2c57392"
 };
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig); 
 const auth = getAuth(app);
 const database = getDatabase(app);
 const storage = getStorage(app);
