@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Animate.css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  
+
   <style>
     * {
       margin: 0;
@@ -42,8 +43,15 @@
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-20px) rotate(180deg); }
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
     }
 
     #mainContent {
@@ -356,20 +364,20 @@
       #dashboardSection h1 {
         font-size: 2rem;
       }
-      
+
       #usersSection h2 {
         font-size: 1.5rem;
       }
-      
+
       .card-body {
         padding: 1.5rem;
       }
-      
+
       .btn-lg {
         padding: 1rem 2rem;
         font-size: 1rem;
       }
-      
+
       .navbar-nav .nav-link {
         padding: 0.5rem 1rem !important;
         margin: 0.25rem 0;
@@ -394,7 +402,9 @@
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* Success Animation */
@@ -418,6 +428,7 @@
         transform: translateX(100%);
         opacity: 0;
       }
+
       to {
         transform: translateX(0);
         opacity: 1;
@@ -444,237 +455,238 @@
     }
   </style>
 </head>
+
 <body>
 
-<div id="mainContent">
+  <div id="mainContent">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand animate__animated animate__fadeInLeft" href="#">
-        <i class="fas fa-tachometer-alt me-2"></i>لوحة التحكم
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
-        aria-controls="navbarContent" aria-expanded="false" aria-label="تبديل التنقل">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand animate__animated animate__fadeInLeft" href="./Admin_Dashbord.html">
+          <i class="fas fa-tachometer-alt me-2"></i>لوحة التحكم
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+          aria-controls="navbarContent" aria-expanded="false" aria-label="تبديل التنقل">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.1s;">
-            <a class="nav-link" href="./admin-products.html" id="linkProducts">
-              <i class="fas fa-boxes me-2"></i>المنتجات
-            </a>
-          </li>
-          <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.2s;">
-            <a class="nav-link" href="./admin-categories.html" id="linkCategories">
-              <i class="fas fa-list me-2"></i>الأقسام
-            </a>
-          </li>
-          <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.3s;">
-            <a class="nav-link" href="./admin-orders.html">
-              <i class="fas fa-shopping-cart me-2"></i>الأوردرات
-            </a>
-          </li>
-          <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.4s;">
-            <a class="nav-link" href="#" id="linkUsers">
-              <i class="fas fa-users-cog me-2"></i>الادمنز
-            </a>
-          </li>
-          <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.5s;">
-            <a class="nav-link" href="./User_Product.html" id="linkPreview">
-              <i class="fas fa-eye me-2"></i>معاينة كالمستخدم
-            </a>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.1s;">
+              <a class="nav-link" href="./admin-products.html" id="linkProducts">
+                <i class="fas fa-boxes me-2"></i>المنتجات
+              </a>
+            </li>
+            <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.2s;">
+              <a class="nav-link" href="./admin-categories.html" id="linkCategories">
+                <i class="fas fa-list me-2"></i>الأقسام
+              </a>
+            </li>
+            <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.3s;">
+              <a class="nav-link" href="./admin-orders.html">
+                <i class="fas fa-shopping-cart me-2"></i>الأوردرات
+              </a>
+            </li>
+            <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.4s;">
+              <a class="nav-link" href="#" id="linkUsers">
+                <i class="fas fa-users-cog me-2"></i>الادمنز
+              </a>
+            </li>
+            <li class="nav-item animate__animated animate__fadeInDown" style="animation-delay: 0.5s;">
+              <a class="nav-link" href="/" id="linkPreview">
+                <i class="fas fa-eye me-2"></i>معاينة كالمستخدم
+              </a>
+            </li>
+          </ul>
 
-        <div class="d-flex animate__animated animate__fadeInRight">
-          <button id="btnLogin" class="btn btn-outline-light me-2">
-            <i class="fas fa-sign-in-alt me-2"></i>تسجيل الدخول
-          </button>
-          <button id="btnLogout" class="btn btn-light d-none">
-            <i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container my-5 text-center" id="dashboardSection">
-    <h1 class="animate__animated animate__fadeInDown">
-      <i class="fas fa-home me-3"></i>مرحباً بك في لوحة التحكم
-    </h1>
-    <p class="animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
-      يمكنك التحكم في المنتجات والأقسام والطلبات من خلال القائمة أعلاه
-    </p>
-    
-    <!-- Quick Stats Cards -->
-    <div class="row mt-5 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
-      <div class="col-md-3 mb-3">
-        <div class="card text-center h-100">
-          <div class="card-body">
-            <i class="fas fa-boxes fa-3x text-primary mb-3"></i>
-            <h5 class="card-title">المنتجات</h5>
-            <p class="card-text">إدارة المنتجات والمخزون</p>
-            <a href="./admin-products.html" class="btn btn-primary btn-sm">
-              <i class="fas fa-arrow-left me-2"></i>إدارة المنتجات
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        <div class="card text-center h-100">
-          <div class="card-body">
-            <i class="fas fa-list fa-3x text-success mb-3"></i>
-            <h5 class="card-title">الأقسام</h5>
-            <p class="card-text">إدارة فئات المنتجات</p>
-            <a href="./admin-categories.html" class="btn btn-success btn-sm">
-              <i class="fas fa-arrow-left me-2"></i>إدارة الأقسام
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        <div class="card text-center h-100">
-          <div class="card-body">
-            <i class="fas fa-shopping-cart fa-3x text-warning mb-3"></i>
-            <h5 class="card-title">الطلبات</h5>
-            <p class="card-text">متابعة وإدارة الطلبات</p>
-            <a href="./admin-orders.html" class="btn btn-warning btn-sm">
-              <i class="fas fa-arrow-left me-2"></i>إدارة الطلبات
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 mb-3">
-        <div class="card text-center h-100">
-          <div class="card-body">
-            <i class="fas fa-users-cog fa-3x text-info mb-3"></i>
-            <h5 class="card-title">الادمنز</h5>
-            <p class="card-text">إدارة المستخدمين</p>
-            <button class="btn btn-info btn-sm" id="linkUsersBtn">
-              <i class="fas fa-arrow-left me-2"></i>إدارة الادمنز
+          <div class="d-flex animate__animated animate__fadeInRight">
+            <button id="btnLogin" class="btn btn-outline-light me-2">
+              <i class="fas fa-sign-in-alt me-2"></i>تسجيل الدخول
+            </button>
+            <button id="btnLogout" class="btn btn-light d-none">
+              <i class="fas fa-sign-out-alt me-2"></i>تسجيل الخروج
             </button>
           </div>
         </div>
       </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-5 text-center" id="dashboardSection">
+      <h1 class="animate__animated animate__fadeInDown">
+        <i class="fas fa-home me-3"></i>مرحباً بك في لوحة التحكم
+      </h1>
+      <p class="animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
+        يمكنك التحكم في المنتجات والأقسام والطلبات من خلال القائمة أعلاه
+      </p>
+
+      <!-- Quick Stats Cards -->
+      <div class="row mt-5 animate__animated animate__fadeInUp" style="animation-delay: 0.5s;">
+        <div class="col-md-3 mb-3">
+          <div class="card text-center h-100">
+            <div class="card-body">
+              <i class="fas fa-boxes fa-3x text-primary mb-3"></i>
+              <h5 class="card-title">المنتجات</h5>
+              <p class="card-text">إدارة المنتجات والمخزون</p>
+              <a href="./admin-products.html" class="btn btn-primary btn-sm">
+                <i class="fas fa-arrow-left me-2"></i>إدارة المنتجات
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card text-center h-100">
+            <div class="card-body">
+              <i class="fas fa-list fa-3x text-success mb-3"></i>
+              <h5 class="card-title">الأقسام</h5>
+              <p class="card-text">إدارة فئات المنتجات</p>
+              <a href="./admin-categories.html" class="btn btn-success btn-sm">
+                <i class="fas fa-arrow-left me-2"></i>إدارة الأقسام
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card text-center h-100">
+            <div class="card-body">
+              <i class="fas fa-shopping-cart fa-3x text-warning mb-3"></i>
+              <h5 class="card-title">الطلبات</h5>
+              <p class="card-text">متابعة وإدارة الطلبات</p>
+              <a href="./admin-orders.html" class="btn btn-warning btn-sm">
+                <i class="fas fa-arrow-left me-2"></i>إدارة الطلبات
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <div class="card text-center h-100">
+            <div class="card-body">
+              <i class="fas fa-users-cog fa-3x text-info mb-3"></i>
+              <h5 class="card-title">الادمنز</h5>
+              <p class="card-text">إدارة المستخدمين</p>
+              <button class="btn btn-info btn-sm" id="linkUsersBtn">
+                <i class="fas fa-arrow-left me-2"></i>إدارة الادمنز
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- Users Management Section -->
+    <div id="usersSection" class="container">
+      <h2 class="animate__animated animate__fadeInDown">
+        <i class="fas fa-users-cog me-3"></i>إدارة الادمنز
+      </h2>
+
+      <div class="card mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+        <div class="card-header">
+          <i class="fas fa-user-plus me-2"></i>إضافة أدمن جديد
+        </div>
+        <div class="card-body">
+          <form id="addAdminForm" class="row g-3">
+            <div class="col-md-4">
+              <input type="text" class="form-control form-control-lg" id="adminName" placeholder="الاسم الكامل" required
+                autocomplete="name" />
+            </div>
+            <div class="col-md-4">
+              <input type="email" class="form-control form-control-lg" id="adminEmail" placeholder="البريد الإلكتروني"
+                required autocomplete="email" />
+            </div>
+            <div class="col-md-4">
+              <input type="password" class="form-control form-control-lg" id="adminPassword"
+                placeholder="كلمة المرور (6 أحرف على الأقل)" minlength="6" required autocomplete="new-password" />
+            </div>
+            <div class="col-12 text-center mt-3">
+              <button type="submit" class="btn btn-success btn-lg px-5">
+                <i class="fas fa-user-plus me-2"></i>إضافة أدمن
+              </button>
+            </div>
+          </form>
+
+          <div id="addAdminMessage" class="mt-3 text-center"></div>
+        </div>
+      </div>
+
+      <div class="table-responsive animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+        <table class="table table-striped text-center" id="adminsTable">
+          <thead>
+            <tr>
+              <th><i class="fas fa-user me-2"></i>الاسم</th>
+              <th><i class="fas fa-envelope me-2"></i>البريد الإلكتروني</th>
+              <th><i class="fas fa-cogs me-2"></i>الإجراء</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- هنا يتم تحميل الأدمنز -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 
-  <!-- Users Management Section -->
-  <div id="usersSection" class="container">
-    <h2 class="animate__animated animate__fadeInDown">
-      <i class="fas fa-users-cog me-3"></i>إدارة الادمنز
-    </h2>
+  <!-- Bootstrap JS Bundle (يشمل Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <div class="card mb-4 animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-      <div class="card-header">
-        <i class="fas fa-user-plus me-2"></i>إضافة أدمن جديد
-      </div>
-      <div class="card-body">
-        <form id="addAdminForm" class="row g-3">
-          <div class="col-md-4">
-            <input type="text" class="form-control form-control-lg" id="adminName" 
-                   placeholder="الاسم الكامل" required autocomplete="name" />
-          </div>
-          <div class="col-md-4">
-            <input type="email" class="form-control form-control-lg" id="adminEmail" 
-                   placeholder="البريد الإلكتروني" required autocomplete="email" />
-          </div>
-          <div class="col-md-4">
-            <input type="password" class="form-control form-control-lg" id="adminPassword" 
-                   placeholder="كلمة المرور (6 أحرف على الأقل)" minlength="6" required autocomplete="new-password" />
-          </div>
-          <div class="col-12 text-center mt-3">
-            <button type="submit" class="btn btn-success btn-lg px-5">
-              <i class="fas fa-user-plus me-2"></i>إضافة أدمن
-            </button>
-          </div>
-        </form>
+  <script type="module">
+    import { auth, database } from '/firebase-config.js';
+    import { onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+    import { ref as dbRef, set, get, remove } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
-        <div id="addAdminMessage" class="mt-3 text-center"></div>
-      </div>
-    </div>
+    const mainContent = document.getElementById('mainContent');
+    const btnLogin = document.getElementById('btnLogin');
+    const btnLogout = document.getElementById('btnLogout');
 
-    <div class="table-responsive animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-      <table class="table table-striped text-center" id="adminsTable">
-        <thead>
-          <tr>
-            <th><i class="fas fa-user me-2"></i>الاسم</th>
-            <th><i class="fas fa-envelope me-2"></i>البريد الإلكتروني</th>
-            <th><i class="fas fa-cogs me-2"></i>الإجراء</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- هنا يتم تحميل الأدمنز -->
-        </tbody>
-      </table>
-    </div>
-  </div>
+    // أقسام المحتوى
+    const dashboardSection = document.getElementById('dashboardSection');
+    const usersSection = document.getElementById('usersSection');
 
-</div>
+    // روابط النافبار
+    const linkProducts = document.getElementById('linkProducts');
+    const linkCategories = document.getElementById('linkCategories');
+    const linkUsers = document.getElementById('linkUsers');
+    const linkUsersBtn = document.getElementById('linkUsersBtn');
 
-<!-- Bootstrap JS Bundle (يشمل Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    // إدارة المستخدمين
+    const adminsTableBody = document.querySelector('#adminsTable tbody');
+    const addAdminForm = document.getElementById('addAdminForm');
+    const addAdminMessage = document.getElementById('addAdminMessage');
 
-<script type="module">
-  import { auth, database } from '/firebase-config.js';
-  import { onAuthStateChanged, signOut, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
-  import { ref as dbRef, set, get, remove } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
+    // لنحفظ مؤقتًا بيانات المستخدم الأصلي
+    let originalUserEmail = null;
 
-  const mainContent = document.getElementById('mainContent');
-  const btnLogin = document.getElementById('btnLogin');
-  const btnLogout = document.getElementById('btnLogout');
-
-  // أقسام المحتوى
-  const dashboardSection = document.getElementById('dashboardSection');
-  const usersSection = document.getElementById('usersSection');
-
-  // روابط النافبار
-  const linkProducts = document.getElementById('linkProducts');
-  const linkCategories = document.getElementById('linkCategories');
-  const linkUsers = document.getElementById('linkUsers');
-  const linkUsersBtn = document.getElementById('linkUsersBtn');
-
-  // إدارة المستخدمين
-  const adminsTableBody = document.querySelector('#adminsTable tbody');
-  const addAdminForm = document.getElementById('addAdminForm');
-  const addAdminMessage = document.getElementById('addAdminMessage');
-
-  // لنحفظ مؤقتًا بيانات المستخدم الأصلي
-  let originalUserEmail = null;
-
-  // لتحديث أزرار الدخول والخروج
-  function updateButtons(isLoggedIn) {
-    if (isLoggedIn) {
-      btnLogin.classList.add('d-none');
-      btnLogout.classList.remove('d-none');
-    } else {
-      btnLogin.classList.remove('d-none');
-      btnLogout.classList.add('d-none');
+    // لتحديث أزرار الدخول والخروج
+    function updateButtons(isLoggedIn) {
+      if (isLoggedIn) {
+        btnLogin.classList.add('d-none');
+        btnLogout.classList.remove('d-none');
+      } else {
+        btnLogin.classList.remove('d-none');
+        btnLogout.classList.add('d-none');
+      }
     }
-  }
 
-  function redirectToLogin() {
-    window.location.href = './login/login.html';
-  }
-
-  function showSection(section) {
-    dashboardSection.style.display = 'none';
-    usersSection.style.display = 'none';
-
-    if (section === 'dashboard') {
-      dashboardSection.style.display = 'block';
-    } else if (section === 'users') {
-      usersSection.style.display = 'block';
-      loadAdmins();
+    function redirectToLogin() {
+      window.location.href = './login/login.html';
     }
-  }
 
-  // تحميل الأدمنز من Firebase
-  async function loadAdmins() {
-    adminsTableBody.innerHTML = `
+    function showSection(section) {
+      dashboardSection.style.display = 'none';
+      usersSection.style.display = 'none';
+
+      if (section === 'dashboard') {
+        dashboardSection.style.display = 'block';
+      } else if (section === 'users') {
+        usersSection.style.display = 'block';
+        loadAdmins();
+      }
+    }
+
+    // تحميل الأدمنز من Firebase
+    async function loadAdmins() {
+      adminsTableBody.innerHTML = `
       <tr>
         <td colspan="3" class="text-center">
           <div class="loading">
@@ -683,21 +695,21 @@
         </td>
       </tr>
     `;
-    
-    try {
-      const snapshot = await get(dbRef(database, 'users'));
-      if (snapshot.exists()) {
-        const users = snapshot.val();
-        adminsTableBody.innerHTML = '';
-        
-        let adminCount = 0;
-        for (const uid in users) {
-          if (users[uid].type === 'admin') {
-            adminCount++;
-            const tr = document.createElement('tr');
-            tr.className = 'animate__animated animate__fadeInUp';
-            tr.style.animationDelay = `${adminCount * 0.1}s`;
-            tr.innerHTML = `
+
+      try {
+        const snapshot = await get(dbRef(database, 'users'));
+        if (snapshot.exists()) {
+          const users = snapshot.val();
+          adminsTableBody.innerHTML = '';
+
+          let adminCount = 0;
+          for (const uid in users) {
+            if (users[uid].type === 'admin') {
+              adminCount++;
+              const tr = document.createElement('tr');
+              tr.className = 'animate__animated animate__fadeInUp';
+              tr.style.animationDelay = `${adminCount * 0.1}s`;
+              tr.innerHTML = `
               <td><i class="fas fa-user me-2"></i>${users[uid].name || '-'}</td>
               <td><i class="fas fa-envelope me-2"></i>${users[uid].email || '-'}</td>
               <td>
@@ -705,12 +717,12 @@
                   <i class="fas fa-trash me-2"></i>حذف
                 </button>
               </td>`;
-            adminsTableBody.appendChild(tr);
+              adminsTableBody.appendChild(tr);
+            }
           }
-        }
-        
-        if (adminCount === 0) {
-          adminsTableBody.innerHTML = `
+
+          if (adminCount === 0) {
+            adminsTableBody.innerHTML = `
             <tr>
               <td colspan="3">
                 <div class="empty-state">
@@ -720,9 +732,9 @@
               </td>
             </tr>
           `;
-        }
-      } else {
-        adminsTableBody.innerHTML = `
+          }
+        } else {
+          adminsTableBody.innerHTML = `
           <tr>
             <td colspan="3">
               <div class="empty-state">
@@ -732,159 +744,160 @@
             </td>
           </tr>
         `;
-      }
-    } catch (err) {
-      console.error('Error loading admins:', err);
-      adminsTableBody.innerHTML = `
+        }
+      } catch (err) {
+        console.error('Error loading admins:', err);
+        adminsTableBody.innerHTML = `
         <tr>
           <td colspan="3" class="text-center text-danger">
             <i class="fas fa-exclamation-triangle me-2"></i>حدث خطأ في تحميل البيانات
           </td>
         </tr>
       `;
-    }
-  }
-
-  // إضافة أدمن جديد
-  addAdminForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    addAdminMessage.textContent = '';
-    addAdminMessage.className = '';
-
-    const name = document.getElementById('adminName').value.trim();
-    const email = document.getElementById('adminEmail').value.trim();
-    const password = document.getElementById('adminPassword').value;
-
-    if (!name || !email || !password) {
-      addAdminMessage.textContent = 'يرجى ملء جميع الحقول.';
-      addAdminMessage.className = 'text-danger';
-      return;
+      }
     }
 
-    if (password.length < 6) {
-      addAdminMessage.textContent = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل.';
-      addAdminMessage.className = 'text-danger';
-      return;
-    }
+    // إضافة أدمن جديد
+    addAdminForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    try {
-      // 1. نسجل الايميل الحالي عشان نقدر نرجع له بعد التبديل
-      if (!originalUserEmail && auth.currentUser) {
-        originalUserEmail = auth.currentUser.email;
+      addAdminMessage.textContent = '';
+      addAdminMessage.className = '';
+
+      const name = document.getElementById('adminName').value.trim();
+      const email = document.getElementById('adminEmail').value.trim();
+      const password = document.getElementById('adminPassword').value;
+
+      if (!name || !email || !password) {
+        addAdminMessage.textContent = 'يرجى ملء جميع الحقول.';
+        addAdminMessage.className = 'text-danger';
+        return;
       }
 
-      // 2. نضيف المستخدم الجديد (هذا سيؤدي لتغيير حالة تسجيل الدخول)
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+      if (password.length < 6) {
+        addAdminMessage.textContent = 'كلمة المرور يجب أن تكون 6 أحرف على الأقل.';
+        addAdminMessage.className = 'text-danger';
+        return;
+      }
 
-      // 3. نحفظ بيانات الأدمن الجديد في الداتابيز
-      await set(dbRef(database, 'users/' + user.uid), {
-        name: name,
-        email: email,
-        type: 'admin'
-      });
+      try {
+        // 1. نسجل الايميل الحالي عشان نقدر نرجع له بعد التبديل
+        if (!originalUserEmail && auth.currentUser) {
+          originalUserEmail = auth.currentUser.email;
+        }
 
-      addAdminMessage.textContent = 'تم إضافة الأدمن بنجاح!';
-      addAdminMessage.className = 'text-success';
-      addAdminForm.reset();
-      loadAdmins();
+        // 2. نضيف المستخدم الجديد (هذا سيؤدي لتغيير حالة تسجيل الدخول)
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-      // 5. نطلب من المستخدم الأصلي أن يعيد تسجيل الدخول (لا يمكن تلقائيًا لعدم حفظ الباسورد)
-      alert('تم إضافة الأدمن الجديد. يرجى تسجيل الدخول مرة أخرى.');
+        // 3. نحفظ بيانات الأدمن الجديد في الداتابيز
+        await set(dbRef(database, 'users/' + user.uid), {
+          name: name,
+          email: email,
+          type: 'admin'
+        });
 
-    } catch (error) {
-      addAdminMessage.textContent = 'حدث خطأ: ' + error.message;
-      addAdminMessage.className = 'text-danger';
-    }
-  });
+        addAdminMessage.textContent = 'تم إضافة الأدمن بنجاح!';
+        addAdminMessage.className = 'text-success';
+        addAdminForm.reset();
+        loadAdmins();
 
-  // حذف أدمن
-  adminsTableBody.addEventListener('click', async (e) => {
-    if (e.target.classList.contains('btn-delete') || e.target.closest('.btn-delete')) {
-      const deleteBtn = e.target.classList.contains('btn-delete') ? e.target : e.target.closest('.btn-delete');
-      const uid = deleteBtn.getAttribute('data-uid');
-      if (confirm('هل أنت متأكد من حذف هذا الأدمن؟')) {
-        try {
-          await remove(dbRef(database, 'users/' + uid));
-          loadAdmins();
-          alert('تم حذف الأدمن.');
-        } catch (error) {
-          alert('حدث خطأ أثناء الحذف: ' + error.message);
+        // 5. نطلب من المستخدم الأصلي أن يعيد تسجيل الدخول (لا يمكن تلقائيًا لعدم حفظ الباسورد)
+        alert('تم إضافة الأدمن الجديد. يرجى تسجيل الدخول مرة أخرى.');
+
+      } catch (error) {
+        addAdminMessage.textContent = 'حدث خطأ: ' + error.message;
+        addAdminMessage.className = 'text-danger';
+      }
+    });
+
+    // حذف أدمن
+    adminsTableBody.addEventListener('click', async (e) => {
+      if (e.target.classList.contains('btn-delete') || e.target.closest('.btn-delete')) {
+        const deleteBtn = e.target.classList.contains('btn-delete') ? e.target : e.target.closest('.btn-delete');
+        const uid = deleteBtn.getAttribute('data-uid');
+        if (confirm('هل أنت متأكد من حذف هذا الأدمن؟')) {
+          try {
+            await remove(dbRef(database, 'users/' + uid));
+            loadAdmins();
+            alert('تم حذف الأدمن.');
+          } catch (error) {
+            alert('حدث خطأ أثناء الحذف: ' + error.message);
+          }
         }
       }
-    }
-  });
+    });
 
-  // روابط النافبار
-  linkProducts.addEventListener('click', (e) => {
-    // تفتح صفحة المنتجات كما هي
-  });
+    // روابط النافبار
+    linkProducts.addEventListener('click', (e) => {
+      // تفتح صفحة المنتجات كما هي
+    });
 
-  linkCategories.addEventListener('click', (e) => {
-    // تفتح صفحة الأقسام كما هي
-  });
+    linkCategories.addEventListener('click', (e) => {
+      // تفتح صفحة الأقسام كما هي
+    });
 
-  linkUsers.addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('users');
-  });
+    linkUsers.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSection('users');
+    });
 
-  linkUsersBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    showSection('users');
-  });
+    linkUsersBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSection('users');
+    });
 
-  // التحقق من حالة تسجيل الدخول وصلاحية الأدمن
-  onAuthStateChanged(auth, async (user) => {
-    if (!user) {
-      updateButtons(false);
-      mainContent.style.display = 'none';
-      redirectToLogin();
-      return;
-    }
-    try {
-      const userSnap = await get(dbRef(database, 'users/' + user.uid));
-      const ud = userSnap.exists() ? userSnap.val() : null;
-      if (!ud || ud.type !== 'admin') {
-        alert('ليس لديك صلاحية الوصول.');
-        await signOut(auth);
+    // التحقق من حالة تسجيل الدخول وصلاحية الأدمن
+    onAuthStateChanged(auth, async (user) => {      
+      if (!user) {
         updateButtons(false);
         mainContent.style.display = 'none';
         redirectToLogin();
         return;
       }
-      updateButtons(true);
-      mainContent.style.display = 'block';
-      showSection('dashboard'); // عرض الصفحة الرئيسية عند الدخول
-    } catch (error) {
-      console.error(error);
-      alert('حدث خطأ في التحقق من المستخدم.');
-      updateButtons(false);
-      mainContent.style.display = 'none';
-      redirectToLogin();
-    }
-  });
+      try {
+        const userSnap = await get(dbRef(database, 'users/' + user.uid));
+        const ud = userSnap.exists() ? userSnap.val() : null;
+        if (!ud || ud.type !== 'admin') {
+          alert('ليس لديك صلاحية الوصول.');
+          await signOut(auth);
+          updateButtons(false);
+          mainContent.style.display = 'none';
+          redirectToLogin();
+          return;
+        }
+        updateButtons(true);
+        mainContent.style.display = 'block';
+        showSection('dashboard'); // عرض الصفحة الرئيسية عند الدخول
+      } catch (error) {
+        console.error(error);
+        alert('حدث خطأ في التحقق من المستخدم.');
+        updateButtons(false);
+        mainContent.style.display = 'none';
+        redirectToLogin();
+      }
+    });
 
-  // تسجيل الخروج
-  btnLogout.addEventListener('click', async () => {
-    try {
-      await signOut(auth);
-      updateButtons(false);
-      mainContent.style.display = 'none';
-      alert('تم تسجيل الخروج');
-      redirectToLogin();
-    } catch (error) {
-      console.error('Logout error:', error);
-      alert('حدث خطأ أثناء تسجيل الخروج.');
-    }
-  });
+    // تسجيل الخروج
+    btnLogout.addEventListener('click', async () => {
+      try {
+        await signOut(auth);
+        updateButtons(false);
+        mainContent.style.display = 'none';
+        alert('تم تسجيل الخروج');
+        redirectToLogin();
+      } catch (error) {
+        console.error('Logout error:', error);
+        alert('حدث خطأ أثناء تسجيل الخروج.');
+      }
+    });
 
-  // زر تسجيل الدخول (يمكن استخدامه إن أردت)
-  btnLogin.addEventListener('click', () => {
-    window.location.href = './login/login.html';
-  });
-</script>
+    // زر تسجيل الدخول (يمكن استخدامه إن أردت)
+    btnLogin.addEventListener('click', () => {
+      window.location.href = './login/login.html';
+    });
+  </script>
 
 </body>
+
 </html>

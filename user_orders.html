@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>طلباتى | اقرأ وتدرّب</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+      font-family: 'Cairo', 'Tajawal', sans-serif;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+      animation: float 25s ease-in-out infinite;
+      z-index: -1;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.3), transparent);
+      background-repeat: repeat;
+      background-size: 200px 100px;
+      animation: sparkle 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(0) scale(1);
+        opacity: .8
+      }
+
+      25% {
+        transform: translateY(-30px) rotate(90deg) scale(1.1);
+        opacity: 1
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(180deg) scale(.9);
+        opacity: .6
+      }
+
+      75% {
+        transform: translateY(-45px) rotate(270deg) scale(1.05);
+        opacity: .9
+      }
+    }
+
+    @keyframes sparkle {
+      0% {
+        transform: translateY(0)
+      }
+
+      100% {
+        transform: translateY(-100px)
+      }
+    }
+
+    .navbar {
+      background: rgba(255, 255, 255, 0.95) !important;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .1);
+      border-bottom: 1px solid rgba(255, 255, 255, .3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-weight: 800;
+      background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 3s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+
+      0%,
+      100% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+    }
+
+    .nav-link {
+      font-weight: 600;
+      color: #2d3748 !important;
+      position: relative;
+      padding: 10px 20px !important;
+      border-radius: 25px;
+      margin: 0 5px;
+      transition: .3s
+    }
+
+    .nav-link:hover {
+      color: #fff !important;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, .3);
+      transform: translateY(-3px);
+    }
+
+    .cart-icon {
+      position: relative;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, .3);
+      transition: .3s
+    }
+
+    .cart-icon:hover {
+      transform: scale(1.15) rotate(10deg);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, .5);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: linear-gradient(45deg, #e53e3e, #f56565);
+      color: #fff;
+      font-size: .8rem;
+      padding: 3px 7px;
+      border-radius: 50%;
+      font-weight: 700;
+    }
+
+    .filters-section {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-radius: 25px;
+      padding: 13px 30px;
+      margin: 25px 0;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .1);
+      border: 1px solid rgba(255, 255, 255, .3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Orders table */
+    .orders-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      border-radius: 25px;
+      border: none;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, .1);
+      overflow: hidden;
+    }
+
+    .table thead th {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: #fff;
+      border: 0;
+    }
+
+    .table> :not(caption)>*>* {
+      vertical-align: middle
+    }
+
+    .status-badge {
+      border-radius: 30px;
+      padding: .4rem .8rem;
+      font-weight: 700;
+    }
+
+    .s-pending {
+      background: #fff3cd;
+      color: #7a5d00;
+    }
+
+    .s-processing {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+
+    .s-completed {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .s-cancelled {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    /* loading overlay */
+    #loaderOverlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 255, 255, .95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1100;
+    }
+
+    #loaderOverlay.active {
+      display: flex
+    }
+
+    .spinner {
+      width: 64px;
+      height: 64px;
+      border: 6px solid rgba(102, 126, 234, .15);
+      border-left-color: #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* Empty state */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #334155
+    }
+
+    .empty-state i {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Mobile cards mode */
+    @media(max-width: 768px) {
+      table thead {
+        display: none
+      }
+
+      table,
+      tbody,
+      tr,
+      td {
+        display: block;
+        width: 100%
+      }
+
+      .table tr {
+        margin-bottom: 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 15px;
+        padding: 10px;
+        background: #fff
+      }
+
+      .table td {
+        position: relative;
+        padding-left: 50%;
+        text-align: right
+      }
+
+      .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        font-weight: 700;
+        color: #475569
+      }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, .1);
+      border-radius: 10px
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      border-radius: 10px
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Loader Overlay -->
+  <div id="loaderOverlay">
+    <div class="text-center">
+      <div class="spinner mx-auto mb-3"></div>
+      <div class="fw-bold">جاري تحميل الطلبات...</div>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="/"><i class="fas fa-shopping-bag me-2"></i>اقرأ وتدرّب</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/"><i class="fas fa-home me-1"></i>الرئيسية</a>
+          </li>
+          <li class="nav-item"><a class="nav-link active" href="User_Orders.html"><i
+                class="fas fa-box me-1"></i>الطلبات</a></li>
+          <li class="nav-item"><a class="nav-link" target="_blank" href="https://wa.me/+201117465463"><i
+                class="fas fa-phone me-1"></i>تواصل معنا</a></li>
+        </ul>
+        <div class="cart-icon ms-3" onclick="window.location.href='cart.html'">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </div>
+        <div class="ms-4">
+          <a id="logoutBtn" class="btn btn-outline-danger"><i class="fas fa-sign-out-alt me-1"></i>تسجيل الخروج</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Filters / header -->
+    <div class="filters-section">
+      <div class="row g-3 align-items-center">
+        <div class="col-md-4">
+          <select id="statusFilter" class="form-select">
+            <option value="">جميع الحالات</option>
+            <option value="pending">قيد المراجعة</option>
+            <option value="approved">تمت</option>
+            <option value="rejected">ملغاة</option>
+          </select>
+        </div>
+        <div class="col-md-8">
+          <div class="input-group">
+            <span class="input-group-text bg-transparent border-start-0"><i class="fas fa-search"></i></span>
+            <input id="searchInput" class="form-control border-start-0" placeholder="ابحث برقم الطلب أو الاسم...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Orders -->
+    <div class="card orders-card">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-borderless m-0" id="ordersTable">
+            <thead>
+              <tr>
+                <th class="px-3 py-3"># رقم الطلب</th>
+                <th class="py-3">التاريخ</th>
+                <th class="py-3">عدد العناصر</th>
+                <th class="py-3">الإجمالي (جنيه)</th>
+                <th class="py-3">الحالة</th>
+                <th class="py-3 text-center">إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="ordersTbody">
+              <!-- rows injected here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="emptyState" class="empty-state d-none">
+      <i class="fa-regular fa-rectangle-list"></i>
+      لا توجد طلبات بعد.
+    </div>
+  </div>
+  <!-- Modal التفاصيل -->
+  <div class="modal fade" id="orderDetailsModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">تفاصيل الطلب</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div id="orderDetailsContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module">
+    // ===== Firebase imports =====
+    import { auth, database } from './firebase-config.js';
+    import { onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js';
+    import { ref, get, onValue, query, orderByChild, equalTo } from 'https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js';
+
+    // ===== UI elements =====
+    const cartCount = document.getElementById('cartCount');
+    const ordersTbody = document.getElementById('ordersTbody');
+    const statusFilter = document.getElementById('statusFilter');
+    const searchInput = document.getElementById('searchInput');
+    const emptyState = document.getElementById('emptyState');
+    const loaderOverlay = document.getElementById('loaderOverlay');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    let allOrders = [];
+
+    function showLoader(flag) { loaderOverlay.classList.toggle('active', !!flag); }
+
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || {}; cartCount.textContent = Object.keys(cart).length;
+    }
+
+    function statusBadge(status) {
+      const map = { pending: 's-pending', approved: 's-completed', rejected: 's-cancelled' };
+      const labelMap = { pending: 'قيد المراجعة', approved: 'تمت', rejected: 'ملغاة' };
+      return `<span class="status-badge ${map[status] || 's-pending'}">${labelMap[status] || status}</span>`;
+    }
+
+    function formatDate(ts) {
+      try { const d = new Date(ts); if (!isNaN(d)) return d.toLocaleString('ar-EG'); } catch (e) { }
+      return ts || '-';
+    }
+
+    function renderOrders() {
+      ordersTbody.innerHTML = '';
+      let list = [...allOrders];
+      const s = statusFilter.value; const q = (searchInput.value || '').trim();
+      if (s) list = list.filter(o => (o.status || '').toLowerCase() === s);
+
+      if (list.length === 0) { emptyState.classList.remove('d-none'); return; } else { emptyState.classList.add('d-none'); }
+
+      list.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+
+      list.forEach(o => {
+        const itemsCount = o.products ? Object.values(o.products).reduce((n, it) => n + (Number(it.quantity) || 0), 0) : 0;
+        const tr = document.createElement('tr');
+        tr.className = 'animate__animated animate__fadeInUp';
+        tr.innerHTML = `
+          <td class="px-3 py-3" data-label="# رقم الطلب">${o.id || '-'}</td>
+          <td class="py-3" data-label="التاريخ">${formatDate(o.orderDate)}</td>
+          <td class="py-3" data-label="عدد العناصر">${itemsCount}</td>
+          <td class="py-3" data-label="الإجمالي">${Number(o.totalPrice || 0).toFixed(2)}</td>
+          <td class="py-3" data-label="الحالة">${statusBadge((o.status || '').toLowerCase())}</td>
+          <td class="py-3 text-center" data-label="إجراء">
+            <button class="btn btn-sm btn-primary" data-id="${o.id}"><i class="fa-regular fa-eye me-1"></i>تفاصيل</button>
+          </td>`;
+        ordersTbody.appendChild(tr);
+      });
+
+      // Details modal (lazy simple alert)
+      const orders = allOrders;
+      ordersTbody.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const order = orders.find(x => String(x.id) === btn.dataset.id);
+          if (!order) return;
+
+          let html = `
+            <p><strong>رقم الطلب:</strong> ${order.id}</p>
+            <p><strong>التاريخ:</strong> ${formatDate(order.orderDate)}</p>
+            <p><strong>الإجمالي:</strong> ${order.totalPrice} جنيه</p>
+            <p><strong>الحالة:</strong> ${statusBadge(order.status)}</p>
+            <hr>
+            <h6>المنتجات:</h6>
+            <div class="row g-3">`;
+
+          for (const [pid, p] of Object.entries(order.products || {})) {
+            html += `
+              <div class="col-md-4">
+                <div class="card h-100">
+                  <img src="${p.imageURL}" class="card-img-top" style="height:120px;object-fit:cover">
+                  <div class="card-body p-2">
+                    <h6 class="card-title mb-1">${p.name}</h6>
+                    <p class="mb-1">الكمية: ${p.quantity}</p>
+                    <p class="mb-0">السعر: ${p.price} جنيه</p>
+                  </div>
+                </div>
+              </div>`;
+          }
+
+          html += '</div>';
+
+          orderDetailsContent.innerHTML = html;
+          const modal = new bootstrap.Modal(document.getElementById('orderDetailsModal'));
+          modal.show();
+        });
+      });
+    }
+
+    function wireFilters() {
+      statusFilter.addEventListener('change', renderOrders);
+      searchInput.addEventListener('input', renderOrders);
+    }
+
+    async function fetchOrdersForUser(uid) {
+      showLoader(true);
+      try {
+        const qRef = query(ref(database, 'orders'), orderByChild('userId'), equalTo(uid));
+        onValue(qRef, (snap) => {
+          const data = snap.val() || {};
+          allOrders = Object.keys(data).map(id => ({ id, ...data[id] }));
+          console.log(allOrders);
+
+          renderOrders();
+          showLoader(false);
+        }, (err) => { console.error(err); showLoader(false); });
+      } catch (err) { console.error(err); showLoader(false); }
+    }
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) { window.location.href = '../login/login.html'; return; }
+      updateCartCount();
+      wireFilters();
+      fetchOrdersForUser(user.uid);
+    });
+
+    // logout
+    logoutBtn.addEventListener('click', async () => { try { await signOut(auth); window.location.href = '../login/login.html'; } catch (e) { console.error(e) } });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

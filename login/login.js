@@ -1,9 +1,11 @@
-  import { auth, database } from '../firebase-config.js';
+import { auth, database } from '../firebase-config.js';
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { ref, get } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-database.js";
 
 const loginForm = document.getElementById('loginForm');
 const errorDiv = document.getElementById('error');
+const submitBtn = document.getElementById('submit');
+
 
 loginForm.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -18,6 +20,9 @@ loginForm.addEventListener('submit', async (e) => {
   }
 
   try {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="loading-spinner mx-2"></span> جاري التسجيل...';
+
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
@@ -43,5 +48,8 @@ loginForm.addEventListener('submit', async (e) => {
 
   } catch (error) {
     errorDiv.textContent = error.message;
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Login';
   }
 });

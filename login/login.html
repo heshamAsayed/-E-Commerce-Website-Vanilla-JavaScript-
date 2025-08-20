@@ -15,7 +15,7 @@
       --cir: 200px;
       --top-bottom: -70px;
       --left-right: -80px;
-      --color-1:   #667eea ;
+      --color-1: #667eea;
       --color-2: #764ba2;
     }
 
@@ -27,7 +27,7 @@
 
     body,
     html {
-      background-image: linear-gradient(to top,var(--color-1) 0%, var(--color-2) 100%);
+      background-image: linear-gradient(to top, var(--color-1) 0%, var(--color-2) 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -84,7 +84,7 @@
 
     h3 {
       font-size: 30px;
-      color:var(--color-2) !important;
+      color: var(--color-2) !important;
       margin-bottom: 30px;
       opacity: 0.9;
       font-weight: 600;
@@ -97,7 +97,7 @@
       width: 110px;
       height: 4px;
       position: absolute;
-      background-image:linear-gradient(to top,var(--color-1) 0%, var(--color-2) 100%);
+      background-image: linear-gradient(to top, var(--color-1) 0%, var(--color-2) 100%);
       left: 0;
       bottom: -10px;
     }
@@ -106,7 +106,8 @@
       margin-top: 40px;
     }
 
-    input ,button{
+    input,
+    button {
       background-color: rgba(255, 255, 255, 0.2);
       border: none;
       border-radius: 10px;
@@ -121,7 +122,8 @@
       padding-left: 20px;
     }
 
-    input:hover,button:hover {
+    input:hover,
+    button:hover {
       box-shadow: 3px 3px 10px rgb(204, 174, 207);
     }
 
@@ -130,18 +132,19 @@
       letter-spacing: 1px;
     }
 
-    button{
+    button {
       background: linear-gradient(45deg, #667eea, #764ba2);
       cursor: pointer;
       padding-left: 0;
-      color:white;
+      color: white;
       font-weight: 700;
       margin-bottom: 7px;
     }
 
-    .links{
+    .links {
       margin-top: 20px;
     }
+
     a,
     p {
       display: inline-block;
@@ -150,8 +153,8 @@
       padding-bottom: 5px;
       font-size: small;
     }
-    
-    a{
+
+    a {
       color: #764ba2 !important;
       font-weight: 800;
     }
@@ -185,6 +188,23 @@
       color: red;
       font-size: 0.8em;
     }
+
+    /* Loading animation */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
 
@@ -198,13 +218,13 @@
         <form id="loginForm">
           <input type="email" id="email" placeholder="Email" required />
           <input type="password" id="password" placeholder="Password" required minlength="6" />
-          <button type="submit">Login</button>
+          <button type="submit" id="submit">Login</button>
           <div class="error" id="error"></div>
         </form>
         <div class="links">
           <p>
             Don't have account?
-            <a href="../Regester.html">click here</a>
+            <a href="../Register.html">click here</a>
           </p>
         </div>
       </section>
